@@ -3,16 +3,20 @@ package com.cos.blog.controller;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 
+//인증이 안된 사용자들이 출입할 수 있는 경로를 /auth/** 허용
+//그냥 주소가 / 이면 index.jsp 허용
+//static 이하에 있는 /js/** , /css/**, /image/** 도 허용
+
 @Controller
 public class UserController {
 
-	@GetMapping("/user/joinForm")
+	@GetMapping("/auth/joinForm")  // /auth 붙인이유 회원가입이나 로그인 페이지는 인증해서 들어갈 필요가 없어서 
 	public String joinForm() {
 		
 		return "user/joinForm";
 	}
 	
-	@GetMapping("/user/loginForm")
+	@GetMapping("/auth/loginForm")
 	public String loginForm() {
 		
 		return "user/loginForm";

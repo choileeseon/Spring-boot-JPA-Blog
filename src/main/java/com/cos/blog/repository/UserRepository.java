@@ -1,5 +1,7 @@
 package com.cos.blog.repository;
 
+import java.util.Optional;
+
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import com.cos.blog.model.User;
@@ -8,12 +10,17 @@ import com.cos.blog.model.User;
 // 자동으로 bean 등록이 된다.
 //@Repository 생략가능
 public interface UserRepository extends JpaRepository<User, Integer>{
+	//SELECT * FROM user WHERE username=?;
+	Optional<User> findByUsername(String username);
+}
 
-	// 1번째 방법 JPA Naming 쿼리 자동실행
+
+
+//로그인 전통적인 방법??
+    //1번째 방법 JPA Naming 쿼리 자동실행
 	// SELECT * FROM user WHERE username = ? AND password = ?
-	User findByUsernameAndPassword(String username, String password); //User 객체로 리턴
+	//User findByUsernameAndPassword(String username, String password); //User 객체로 리턴
 	
 	//2번째방법
 	//	@Query(value = "SELECT * FROM user WHERE username = ? AND password = ?", nativeQuery = true)
 	//	User login(String username, String password);
-}

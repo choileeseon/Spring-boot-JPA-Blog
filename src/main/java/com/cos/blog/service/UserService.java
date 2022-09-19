@@ -3,9 +3,11 @@ package com.cos.blog.service;
 
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.cos.blog.model.RoleType;
 import com.cos.blog.model.User;
 import com.cos.blog.repository.UserRepository;
 
@@ -16,13 +18,15 @@ public class UserService {
 	@Autowired
 	private UserRepository userRepository;
 	
+	@Autowired
+	private BCryptPasswordEncoder encoder;
+	
 	@Transactional
 	public void 회원가입(User user) {
-			userRepository.save(user);
-	}
-
-	@Transactional(readOnly = true) // Select할때 트랜잭션 시작 , 서비스 종료시 트랜잭션 종료 (정합성 유지)
-	public User 로그인(User user) {
-		return userRepository.findByUsernameAndPassword(user.getUsername(), user.getPassword());
+		String rawPassword = user.getPassword(); //1234 
+		String encPassword = encoder.encode(rawPassword); //해쉬
+		user.setPassword(encPassword);
+		user.setRole(RoleType.USER); // 시간은 알아서 넣어지니까 제외
+		userRepository.save(user);
 	}
 }
