@@ -143,7 +143,7 @@ public class UserController {
 		// 회원가입자 비가입자 구분해서 처리
 		User originUser = userService.회원찾기(kakaoUser.getUsername());
 		
-		if(originUser == null) {
+		if(originUser.getUsername() == null) {
 			System.out.println("기존 회원이 아닙니다!");
 			userService.회원가입(kakaoUser);			
 		}
