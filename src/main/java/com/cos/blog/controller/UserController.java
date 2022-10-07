@@ -138,7 +138,6 @@ public class UserController {
 				.username(kakaoProfile.getKakao_account().getEmail()+"_"+kakaoProfile.getId())
 				.password(cosKey)
 				.email(kakaoProfile.getKakao_account().getEmail())
-				.oauth("kakao")
 				.build();
 		
 		// 회원가입자 비가입자 구분해서 처리
@@ -155,7 +154,7 @@ public class UserController {
 		Authentication authentication = authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(kakaoUser.getUsername(),cosKey));
 		SecurityContextHolder.getContext().setAuthentication(authentication);
 		System.out.println("자동 로그인 진행 완료.!!!!!!!!!!!!!!!");
-		return "redirect:/";
+		return response2.getBody();
 	}
 	
 	@GetMapping("/user/updateForm")
