@@ -144,7 +144,7 @@ public class UserController {
 		User originUser = userService.회원찾기(kakaoUser.getUsername());
 		
 		if(originUser.getUsername() == null) {
-			System.out.println("기존 회원이 아닙니다!");
+			System.out.println("기존 회원이 아니니 자동 회원가입을 진행합니다.");
 			userService.회원가입(kakaoUser);			
 		}
 		
