@@ -154,7 +154,7 @@ public class UserController {
 		Authentication authentication = authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(kakaoUser.getUsername(),cosKey));
 		SecurityContextHolder.getContext().setAuthentication(authentication);
 		System.out.println("자동 로그인 진행 완료.!!!!!!!!!!!!!!!");
-		return response2.getBody();
+		return "redirect:/";
 	}
 	
 	@GetMapping("/user/updateForm")
