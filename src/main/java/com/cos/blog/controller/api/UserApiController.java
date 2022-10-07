@@ -2,7 +2,12 @@ package com.cos.blog.controller.api;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
+import org.springframework.security.authentication.AuthenticationManager;
+import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -16,7 +21,9 @@ public class UserApiController {
 	@Autowired
 	private UserService userService;
 	
-
+	@Autowired
+	private AuthenticationManager authenticationManager;
+	
 	// 회원가입
 	@PostMapping("/auth/joinProc")
 	public ResponseDto<Integer> save(@RequestBody User user) { // 직접 받는건 username, password, email
@@ -26,7 +33,19 @@ public class UserApiController {
 		return new ResponseDto<Integer>(HttpStatus.OK.value(), 1); //자바 오브젝트를 JSON으로 변환해서 리턴
 	}
 	
-	
+	//회원가입 수정
+	@PutMapping("/user")
+	public ResponseDto<Integer> update(@RequestBody User user){ //@RequestBody로 받아야 json형태로 받음
+		userService.회원수정(user);
+		// 여기서는 트랜잭션이 종료되기 때문에 DB값은 변경됐지만 세션값은 변경되지 않았다.
+		// 비밀번호를 변경해도 로그아웃 후 로그인해야 세션이 변경된다. 직접 세션값 변경해줘야한다.
+		
+		//세션 등록
+		Authentication authentication = authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(user.getUsername(),user.getPassword()));
+		SecurityContextHolder.getContext().setAuthentication(authentication);
+		
+		return new ResponseDto<Integer>(HttpStatus.OK.value(),1);
+	}
 	
 }
 

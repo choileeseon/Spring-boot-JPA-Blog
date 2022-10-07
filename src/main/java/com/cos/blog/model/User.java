@@ -31,7 +31,7 @@ public class User {
 	@GeneratedValue(strategy = GenerationType.IDENTITY) // 프로젝트에서 연결된 DB의 넘버링 전략을 따라간다.
 	private int id; // 시퀀스(오라클) , auto_increment(MYSQL)
 	
-	@Column(nullable = false, length = 30, unique=true) // null이 될 수 없고 30자까지
+	@Column(nullable = false, length = 100, unique=true) // null이 될 수 없고 30자까지
 	private String username; // 아이디
 	
 	@Column(nullable = false, length = 100) // 12345 => 해쉬(비밀번호 암호화) 해서 넉넉하게 100까지 잡아줌.
@@ -43,6 +43,8 @@ public class User {
 	//	@ColumnDefault("'user'") // 'user' 문자형태 
 	@Enumerated(EnumType.STRING) // DB에는 RoleType이라는게 없으니 
 	private RoleType role; // Enum 을 쓰는게 좋다. (도메인을 만들어줌.) // ADMIN,USER 권한 
+	
+	private String oauth; //카카오, 구글 사용자 구분
 	
 	@CreationTimestamp // 시간이 자동 입력 (비워놔도 됨)
 	private Timestamp createDate; // 가입시간

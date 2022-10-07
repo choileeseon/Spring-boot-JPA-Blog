@@ -3,6 +3,9 @@ let index = {
 		$("#btn-save").on("click", () => {  //function(){}, ()=>{} this를 바인딩하기 위해서
 			this.save();
 		});
+		$("#btn-update").on("click", () => {  //function(){}, ()=>{} this를 바인딩하기 위해서
+			this.update();
+		});
 		
 	},
 	//회원가입
@@ -27,6 +30,30 @@ let index = {
 			dataType: "json" //응답을 json으로 받음. 응답이 왔을때 기본적으로 모든것은 문자열 String. (만약 생긴게 json이라면 -> 자바스크립트 object로 변경)
 		}).done(function(resp){
 			alert("회원가입이 완료되었습니다.");
+			//console.log(resp);
+			location.href="/"; 
+		}).fail(function(error){
+			alert(JSON.stringify(error));
+			});
+	},
+	
+	//회원 수정(update)
+	update: function() {
+		let data = {
+			id: $("#id").val(),
+			username: $("#username").val(),
+			password: $("#password").val(),
+			email: $("#email").val()
+		}
+		$.ajax({
+			//회원수정 수행 요청
+			type:"PUT",
+			url:"/user",
+			data:JSON.stringify(data), // http body데이터 (마임데이터가 필요)
+			contentType:"application/json; charset=utf-8", // body데이터가 어떤 타입인지(MIME)
+			dataType: "json" //응답을 json으로 받음. 응답이 왔을때 기본적으로 모든것은 문자열 String. (만약 생긴게 json이라면 -> 자바스크립트 object로 변경)
+		}).done(function(resp){
+			alert("회원수정이 완료되었습니다.");
 			//console.log(resp);
 			location.href="/"; 
 		}).fail(function(error){
