@@ -38,7 +38,7 @@ public class UserController {
 	private AuthenticationManager authenticationManager;
 	
 	@Autowired
-	UserService userService;
+	private UserService userService;
 
 	@GetMapping("/auth/joinForm")  // /auth 붙인이유 회원가입이나 로그인 페이지는 인증해서 들어갈 필요가 없어서 
 	public String joinForm() {
@@ -138,6 +138,7 @@ public class UserController {
 				.username(kakaoProfile.getKakao_account().getEmail()+"_"+kakaoProfile.getId())
 				.password(cosKey)
 				.email(kakaoProfile.getKakao_account().getEmail())
+				.oauth("kakao")
 				.build();
 		
 		// 회원가입자 비가입자 구분해서 처리

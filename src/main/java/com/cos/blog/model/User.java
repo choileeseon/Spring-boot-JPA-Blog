@@ -44,7 +44,7 @@ public class User {
 	@Enumerated(EnumType.STRING) // DB에는 RoleType이라는게 없으니 
 	private RoleType role; // Enum 을 쓰는게 좋다. (도메인을 만들어줌.) // ADMIN,USER 권한 
 	
-	//private String oauth; //카카오, 구글 사용자 구분
+	private String oauth; //카카오, 구글 사용자 구분
 	
 	@CreationTimestamp // 시간이 자동 입력 (비워놔도 됨)
 	private Timestamp createDate; // 가입시간
