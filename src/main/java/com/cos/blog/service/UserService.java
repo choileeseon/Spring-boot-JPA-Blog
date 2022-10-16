@@ -23,10 +23,11 @@ public class UserService {
 	
 	@Transactional(readOnly = true)
 	public User 회원찾기(String username) {
-		
+	
 		User user = userRepository.findByUsername(username).orElseGet(()->{
-			return new User();
+			return new User(); // 빈 객체 리턴 (null일수가 없음)
 		});
+		
 		return user;
 	}
 	
@@ -50,12 +51,12 @@ public class UserService {
 		
 		// Validate 체크
 		// 일반유저(oauth에 값이 없으면)일때만 수정가능
-		if(persistance.getOauth() == null || persistance.getOauth().equals("")) {
-			String rawPassword = user.getPassword(); //패스워드를 받아서 
-			String encPassword = encoder.encode(rawPassword); //암호화
-			persistance.setPassword(encPassword); //변경 된 패스워드를 암호화
-			persistance.setEmail(user.getEmail()); // 변경 된 이메일			
-		}
+//		if(persistance.getOauth() == null || persistance.getOauth().equals("")) {
+//			String rawPassword = user.getPassword(); //패스워드를 받아서 
+//			String encPassword = encoder.encode(rawPassword); //암호화
+//			persistance.setPassword(encPassword); //변경 된 패스워드를 암호화
+//			persistance.setEmail(user.getEmail()); // 변경 된 이메일			
+//		}
 		
 		// 회원 수정 함수 종료시 = 서비스 종료 = 트랜잭션 종료 = commit 자동으로 된다.
 		// 영속화 된 persistance 객체의 변화가 감지되면 더티체킹이 되어 update문을 날려준다.

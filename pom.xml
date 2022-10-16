@@ -82,13 +82,11 @@
 			<scope>test</scope>
 		</dependency>
 		
-		<!-- 시큐리티는 일단 주석처리
 		<dependency>
 			<groupId>org.springframework.security</groupId>
 			<artifactId>spring-security-test</artifactId>
 			<scope>test</scope>
 		</dependency>
-		-->
 		
 		<!-- yml 추가하니 parent 오류떠서 추가 -->
 		<dependency>

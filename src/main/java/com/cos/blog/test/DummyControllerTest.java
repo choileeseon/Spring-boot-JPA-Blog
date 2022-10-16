@@ -51,9 +51,9 @@ public class DummyControllerTest {
 	@PutMapping("/dummy/user/{id}")
 	public User updateUser(@PathVariable int id, @RequestBody User requestUser) { 
 		// json데이터를 요청 -> Java Object(MessageConverter의 Jackson 라이브러리가 변환해서 받아준다.)
-		System.out.println("id : " + id);
-		System.out.println("password : " + requestUser.getPassword());
-		System.out.println("email : " + requestUser.getEmail());
+		//System.out.println("id : " + id);
+		//System.out.println("password : " + requestUser.getPassword());
+		//System.out.println("email : " + requestUser.getEmail());
 		
 		User user = userRepository.findById(id).orElseThrow(()->{
 			return new IllegalArgumentException("수정에 실패하였습니다.");
@@ -118,12 +118,12 @@ public class DummyControllerTest {
 	// http의 body에 username,password,email 데이터를 가지고(요청)
 	@PostMapping("/dummy/join")
 	public String join(User user) { // key=value (약속된 규칙)
-		System.out.println("id : " + user.getId());
-		System.out.println("username : " + user.getUsername());
-		System.out.println("password : " + user.getPassword());
-		System.out.println("email : " + user.getEmail());
-		System.out.println("role: " + user.getRole());
-		System.out.println("createDate : " + user.getCreateDate());
+		//System.out.println("id : " + user.getId());
+		//System.out.println("username : " + user.getUsername());
+		//System.out.println("password : " + user.getPassword());
+		//System.out.println("email : " + user.getEmail());
+		//System.out.println("role: " + user.getRole());
+		//System.out.println("createDate : " + user.getCreateDate());
 		
 		user.setRole(RoleType.USER);
 		userRepository.save(user);

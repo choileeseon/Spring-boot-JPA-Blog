@@ -14,12 +14,15 @@ import org.hibernate.annotations.CreationTimestamp;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
-import lombok.Data;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 // ORM -> Java(그 외 다른언어 포함) Object -> 테이블로 매핑해주는 기술 
 
-@Data
+//@Data  무한참조 StackOverflowError 오류나서 겟터,셋터로 대체
+@Getter
+@Setter
 @NoArgsConstructor //빈 생성자
 @AllArgsConstructor //전체 생성자
 @Builder //빌더 패턴!

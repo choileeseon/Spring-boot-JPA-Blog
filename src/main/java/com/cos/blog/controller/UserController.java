@@ -92,7 +92,7 @@ public class UserController {
 				e.printStackTrace();
 			}
 		
-		System.out.println("카카오 엑세스 토큰 : "+oauthToken.getAccess_token());
+		//System.out.println("카카오 엑세스 토큰 : "+oauthToken.getAccess_token());
 		
 		
 		// 사용자 정보 요청하기 
@@ -115,8 +115,8 @@ public class UserController {
 				String.class // 응답받을 타입
 		);
 	
-		System.out.println(response2.getBody());
-		
+		//System.out.println(response2.getBody());
+
 		ObjectMapper objectMapper2 = new ObjectMapper();
 		KakaoProfile kakaoProfile = null;
 			try {
@@ -126,36 +126,37 @@ public class UserController {
 			} catch (JsonProcessingException e) {
 				e.printStackTrace();
 			}
-		System.out.println("카카오 아이디(번호) : "+kakaoProfile.getId());
-		System.out.println("카카오 이메일 : "+kakaoProfile.getKakao_account().getEmail());
 		
-		System.out.println("블로그 서버 유저네임 : "+kakaoProfile.getKakao_account().getEmail()+"_"+kakaoProfile.getId());
-		System.out.println("블로그 서버 이메일 : "+kakaoProfile.getKakao_account().getEmail());
-		// UUID란 -> 중복되지 않은 어떤 특정 값을 만들어내는 알고리즘
-		System.out.println("블로그 서버 패스워드 : "+cosKey);
-		
-		User kakaoUser = User.builder()
-				.username(kakaoProfile.getKakao_account().getEmail()+"_"+kakaoProfile.getId())
-				.password(cosKey)
-				.email(kakaoProfile.getKakao_account().getEmail())
-				.oauth("kakao")
-				.build();
-		
-		// 회원가입자 비가입자 구분해서 처리
-		User originUser = userService.회원찾기(kakaoUser.getUsername());
-		
-		if(originUser.getUsername() == null) {
-			System.out.println("기존 회원이 아니니 자동 회원가입을 진행합니다.");
-			userService.회원가입(kakaoUser);			
-		}
-		
-		System.out.println("자동 로그인을 진행합니다.");
-		
-		//로그인 처리
-		Authentication authentication = authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(kakaoUser.getUsername(),cosKey));
-		SecurityContextHolder.getContext().setAuthentication(authentication);
-		System.out.println("자동 로그인 진행 완료.!!!!!!!!!!!!!!!");
-		return "redirect:/";
+			//System.out.println("카카오 아이디(번호) : "+kakaoProfile.getId());
+			//System.out.println("카카오 이메일 : "+kakaoProfile.getKakao_account().getEmail());
+			
+			//System.out.println("블로그 서버 유저네임 : "+kakaoProfile.getKakao_account().getEmail()+"_"+kakaoProfile.getId());
+			//System.out.println("블로그 서버 이메일 : "+kakaoProfile.getKakao_account().getEmail());
+			// UUID란 -> 중복되지 않은 어떤 특정 값을 만들어내는 알고리즘
+			//System.out.println("블로그 서버 패스워드 : "+cosKey);
+			
+			User kakaoUser = User.builder()
+					.username(kakaoProfile.getKakao_account().getEmail()+"_"+kakaoProfile.getId())
+					.password(cosKey)
+					.email(kakaoProfile.getKakao_account().getEmail())
+					.oauth("kakao")
+					.build();
+			
+			// 회원가입자 비가입자 구분해서 처리
+			User originUser = userService.회원찾기(kakaoUser.getUsername());
+			
+			if(originUser.getUsername() == null) {
+				//System.out.println("기존 회원이 아니니 자동 회원가입을 진행합니다.");
+				userService.회원가입(kakaoUser);			
+			}	
+			
+			//System.out.println("자동 로그인을 진행합니다.");
+			
+			//로그인 처리
+			Authentication authentication = authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(kakaoUser.getUsername(),cosKey));
+			SecurityContextHolder.getContext().setAuthentication(authentication);
+			
+			return "redirect:/";
 	}
 	
 	@GetMapping("/user/updateForm")

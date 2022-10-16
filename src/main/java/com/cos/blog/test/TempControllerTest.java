@@ -9,7 +9,7 @@ public class TempControllerTest {
 	// http://localhost:8000/blog/temp/home
 	@GetMapping("/temp/home")
 	public String tempHome() {
-		System.out.println("tempHome()");
+		//System.out.println("tempHome()");
 		// 파일 리턴 기본경로 : src/main/resources/static (에 / 없이 바로 html.html 붙여짐)
 		// 리턴명 : /home.html
 		// 풀경로 : src/main/resources/static/home.html
