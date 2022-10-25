@@ -5,16 +5,22 @@
 
 <!-- 글 상세보기 페이지 -->
 <div class="container">
-		<button class="btn btn-secondary" onclick="history.back()">돌아가기</button>
-		<c:if test="${board.user.id == principal.user.id }">
-			<a href="/board/${board.id}/updateForm" class="btn btn-warning">수정</a>
-			<button id="btn-delete" class="btn btn-danger">삭제</button>
-		</c:if>
-		<br><br>
-		<div>
-			글 번호 : <span id="id"><i>${board.id} </i></span>
-			작성자 : <span><i>${board.user.username} </i></span>
+	<button class="btn btn-secondary" onclick="history.back()">돌아가기</button>
+	<c:if test="${board.user.id == principal.user.id }">
+		<a href="/board/${board.id}/updateForm" class="btn btn-warning">수정</a>
+		<button id="btn-delete" class="btn btn-danger">삭제</button>
+	</c:if>
+	<br>
+	<br>
+	<div>
+		<div class="row justify-content-start">
+			<div class="col-md-auto">글 번호 : <span id="id"><i>${board.id} </i></span></div>
+			<div class="col-md-auto">작성자 : <span><i>${board.user.username} </i></span></div>
+			<div class="col col-lg-4">작성날짜 : <span style="color: #666666; opacity: .5; font-size: 13px" class="">${board.createDate} </span></div>
 		</div>
+		
+		
+
 		<br>
 		<div class="form-group">
 			<h3>${board.title}</h3>
@@ -24,17 +30,20 @@
 			<div>${board.content}</div>
 		</div>
 		<hr>
-		
+
 		<!-- 게시글 댓글  -->
 		<div class="card">
 			<form>
-				<input type="hidden" id="userId" value="${principal.user.id}" >
-				<input type="hidden" id="boardId" value="${board.id}" >
-				<div class="card-body"><textarea id="reply-content" class="form-control" rows="1" ></textarea></div>
-				<div class="card-footer"><button type="button" id="btn-rely-save" class="btn btn-primary">등록</button></div>
+				<input type="hidden" id="userId" value="${principal.user.id}"> <input type="hidden" id="boardId" value="${board.id}">
+				<div class="card-body">
+					<textarea id="reply-content" class="form-control" rows="1"></textarea>
+				</div>
+				<div class="card-footer">
+					<button type="button" id="btn-rely-save" class="btn btn-primary">등록</button>
+				</div>
 			</form>
 		</div>
-		
+
 		<div class="card">
 			<div class="card-header">댓글 리스트</div>
 			<ul id="reply-box" class="list-group">
@@ -49,7 +58,7 @@
 				</c:forEach>
 			</ul>
 		</div>
-</div>
+	</div>
 
-<script src="/js/board.js"></script>
-<%@ include file="../layout/footer.jsp"%>
+	<script src="/js/board.js"></script>
+	<%@ include file="../layout/footer.jsp"%>
