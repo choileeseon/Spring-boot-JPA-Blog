@@ -77,5 +77,5 @@
 
 ![댓글완료 팝업창](https://user-images.githubusercontent.com/68780794/202920865-979a64b2-4a54-4f7a-a63d-5c58e5b6fbd1.jpg)
 
-**본인이 아니면 삭제버튼 안보임**
+**본인이 쓴 댓글만 삭제 가능**
 ![다른유저면 댓글삭제 없음](https://user-images.githubusercontent.com/68780794/202920528-9a0db89a-3366-408d-848b-20075c672893.jpg)
