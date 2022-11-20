@@ -51,7 +51,7 @@
 **3-1 일반유저 회원정보 페이지**
 ![일반유저 회원정보](https://user-images.githubusercontent.com/68780794/202918257-d4c1dc5b-aaf7-442d-a2e8-83bb51f9d5e6.jpg)
 
-**3-2 카카오로 로그인하면 회원정보 통합**
+**3-2 카카오 로그인 시 회원정보 통합**
 ![카카오 회원정보](https://user-images.githubusercontent.com/68780794/202918451-c7b76393-7e63-4a5c-91e4-914065de371d.jpg)
 
 -------------
@@ -60,7 +60,12 @@
 ![게시글작성](https://user-images.githubusercontent.com/68780794/202918872-e35e09d3-e90c-4d0e-9741-4d7d43820dbd.jpg)
 
 -------------
-# 5.게시글 수정 페이지
+# 5.게시글 상세 페이지
+
+![글 상세](https://user-images.githubusercontent.com/68780794/202921118-319cc370-fadd-46fb-98c9-1bedc66054f1.jpg)
+
+-------------
+# 6.게시글 수정 페이지
 
 ![글 수정](https://user-images.githubusercontent.com/68780794/202920555-730fabb1-f7b3-4c72-8179-4ba5f7864e93.jpg)
 
@@ -68,7 +73,9 @@
 ![수정,삭제버튼 없음](https://user-images.githubusercontent.com/68780794/202920458-d473b1b9-c6f0-4ec1-b400-e44fe1413908.jpg)
 
 -------------
-# 6.댓글(본인이 아니면 삭제버튼 안보임)
+# 7.댓글달기
 
 ![댓글완료 팝업창](https://user-images.githubusercontent.com/68780794/202920865-979a64b2-4a54-4f7a-a63d-5c58e5b6fbd1.jpg)
+
+**본인이 아니면 삭제버튼 안보임**
 ![다른유저면 댓글삭제 없음](https://user-images.githubusercontent.com/68780794/202920528-9a0db89a-3366-408d-848b-20075c672893.jpg)
