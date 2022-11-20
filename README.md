@@ -29,7 +29,7 @@
 
 ## 이미지
 
-#메인화면
+# 1.메인화면
 
 ![메인 페이지](https://user-images.githubusercontent.com/68780794/202917912-6491cd2f-a71c-4556-b655-b0a980ff614a.jpg)
 
