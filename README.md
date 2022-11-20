@@ -64,13 +64,13 @@
 
 ![글 상세](https://user-images.githubusercontent.com/68780794/202921118-319cc370-fadd-46fb-98c9-1bedc66054f1.jpg)
 
+**다른 유저일때 게시글 수정,삭제버튼 안보임**
+![수정,삭제버튼 없음](https://user-images.githubusercontent.com/68780794/202920458-d473b1b9-c6f0-4ec1-b400-e44fe1413908.jpg)
+
 -------------
 # 6.게시글 수정 페이지
 
 ![글 수정](https://user-images.githubusercontent.com/68780794/202920555-730fabb1-f7b3-4c72-8179-4ba5f7864e93.jpg)
-
-**다른 유저일때 수정,삭제 안보임**
-![수정,삭제버튼 없음](https://user-images.githubusercontent.com/68780794/202920458-d473b1b9-c6f0-4ec1-b400-e44fe1413908.jpg)
 
 -------------
 # 7.댓글달기
