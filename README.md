@@ -29,12 +29,14 @@
 
 ## 이미지
 
-#1. 메인화면
+1. 메인화면
 
 ![메인 페이지](https://user-images.githubusercontent.com/68780794/202917912-6491cd2f-a71c-4556-b655-b0a980ff614a.jpg)
 
 -------------
-#2. 로그인, 회원가입
+
+
+2. 로그인, 회원가입
 
 **2-1 일반 유저 로그인**
 ![로그인 페이지](https://user-images.githubusercontent.com/68780794/202917664-d8b54844-b4f9-4437-b5ab-a83dfa824700.jpg)
@@ -46,6 +48,8 @@
 ![회원가입 페이지](https://user-images.githubusercontent.com/68780794/202917833-08e109b0-57b0-4709-8bde-b4559d9cc994.jpg)
 
 -------------
+
+
 3. 회원정보 페이지
 
 **3-1 일반유저 회원정보 페이지**
